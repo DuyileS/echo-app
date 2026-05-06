@@ -12,14 +12,11 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex flex-col min-h-svh p-6">
+      <div className="flex flex-col justify-center items-center min-h-svh p-6">
         <p>apps/web</p>
         <UserButton />
         <OrganizationSwitcher hidePersonal={true} />
-        <div className="max-w-sm w-full mx-auto">
-          {JSON.stringify(users, null, 2)}
-          <Button onClick={() => addUser()}>Add User</Button>
-        </div>
+        <Button onClick={() => addUser()}>Add User</Button>
       </div>
     </>
   )

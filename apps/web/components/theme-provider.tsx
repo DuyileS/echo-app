@@ -18,7 +18,10 @@ function ThemeProvider({
 
   return (
     <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-      {children}
+      <NextThemesProvider {...props}>
+        {children}
+        <ThemeHotkey />
+      </NextThemesProvider>
     </ConvexProviderWithClerk>
   )
 }
