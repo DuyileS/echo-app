@@ -1,4 +1,4 @@
-import OrgSelectView from "@/app/modules/auth/ui/views/org-select-view"
+import OrgSelectView from "@/modules/auth/ui/views/org-select-view"
 
 const page = () => {
     return (
