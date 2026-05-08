@@ -1,6 +1,5 @@
 import { AuthGuard } from "@/modules/auth/ui/components/auth-guard"
 import { OrganizationGuard } from "@/modules/auth/ui/components/org-guard"
-import React from "react"
 import DashboardSidebar from "@/modules/dashboard/ui/components/dashboard-sidebar"
 import { SidebarProvider } from "@workspace/ui/components/sidebar"
 import { TooltipProvider } from "@workspace/ui/components/tooltip"
