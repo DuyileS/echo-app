@@ -43,29 +43,33 @@ const WidgetAuthScreen = () => {
             return
         }
 
-        const metadata: Doc<"contactSessions">["metadata"] = {
-            userAgent: navigator.userAgent,
-            language: navigator.language,
-            languages: navigator.languages?.join(","),
-            platform: navigator.platform,
-            vendor: navigator.vendor,
-            screenResolution: `${screen.width}x${screen.height}`,
-            viewportSize: `${window.innerWidth}x${window.innerHeight}`,
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-            timezoneOffset: new Date().getTimezoneOffset(),
-            cookieEnabled: navigator.cookieEnabled,
-            referrer: document.referrer || "direct",
-            currentUrl: window.location.href
+        try {
+            const metadata: Doc<"contactSessions">["metadata"] = {
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                languages: navigator.languages?.join(","),
+                platform: navigator.platform,
+                vendor: navigator.vendor,
+                screenResolution: `${screen.width}x${screen.height}`,
+                viewportSize: `${window.innerWidth}x${window.innerHeight}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timezoneOffset: new Date().getTimezoneOffset(),
+                cookieEnabled: navigator.cookieEnabled,
+                referrer: document.referrer || "direct",
+                currentUrl: window.location.href
+            }
+
+            const contactSessionId = await createContactSession({
+                ...values,
+                organizationId,
+                metadata
+            })
+
+            console.log({ contactSessionId });
         }
-
-        const contactSessionId = await createContactSession({
-            ...values,
-            organizationId,
-            metadata
-        })
-
-        console.log({ contactSessionId });
-
+        catch (error) {
+            console.error(error)
+        }
     }
 
     return (
