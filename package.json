@@ -20,5 +20,10 @@
   "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=20"
+  },
+  "pnpm": {
+    "overrides": {
+      "ai": "4.3.19"
+    }
   }
 }
